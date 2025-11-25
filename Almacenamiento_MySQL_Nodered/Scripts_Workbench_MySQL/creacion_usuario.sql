@@ -1,0 +1,1 @@
+CREATE USER 'powerbi'@'%' IDENTIFIED BY '12345';
