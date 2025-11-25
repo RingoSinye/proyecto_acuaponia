@@ -1,3 +1,5 @@
+
+CREATE DATABASE proyecto_acuaponia;
 USE proyecto_acuaponia;
 
 CREATE TABLE IF NOT EXISTS sensores_peces (
