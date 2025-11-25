@@ -1,0 +1,22 @@
+[
+    {
+        "id": "7f26ad91153946f3",
+        "type": "function",
+        "z": "45bf3cd9ae0624aa",
+        "name": "Cambiar_Timestamp",
+        "func": "let filas = msg.payload; // El array que viene del bloque anterior\nlet queries = [];\n\n// --- Función para convertir timestamp (ms) a formato MySQL DATETIME ---\nfunction formatDate(ts) {\n    let d = new Date(ts);\n    let yyyy = d.getFullYear();\n    let mm = String(d.getMonth() + 1).padStart(2, '0');\n    let dd = String(d.getDate()).padStart(2, '0');\n    let hh = String(d.getHours()).padStart(2, '0');\n    let mi = String(d.getMinutes()).padStart(2, '0');\n    let ss = String(d.getSeconds()).padStart(2, '0');\n    return `${yyyy}-${mm}-${dd} ${hh}:${mi}:${ss}`;\n}\n\n// --- Recorre todas las filas generadas ---\nfor (let f of filas) {\n\n    let fecha = formatDate(f.timestamp);\n    let sql = \"\";\n\n    // ========================================\n    //         SENSORES (analógicos o digitales)\n    // ========================================\n    if (f.variable !== undefined && f.valor !== undefined) {\n\n        if (f.submodulo === \"FishTank\") {\n            sql = `INSERT INTO sensores_peces \n                   (timestamp, modulo, submodulo, dispositivo, tipo, variable, valor)\n                   VALUES ('${fecha}', '${f.modulo}', '${f.submodulo}', '${f.dispositivo}', '${f.tipo}', '${f.variable}', ${f.valor})`;\n        }\n\n        else if (f.submodulo === \"AquaponicGrowBed\") {\n            sql = `INSERT INTO sensores_plantas \n                   (timestamp, modulo, submodulo, dispositivo, tipo, variable, valor)\n                   VALUES ('${fecha}', '${f.modulo}', '${f.submodulo}', '${f.dispositivo}', '${f.tipo}', '${f.variable}', ${f.valor})`;\n        }\n    }\n\n    // ========================================\n    //              ACTUADORES\n    // ========================================\n    else if (f.descripcion !== undefined) {\n\n        if (f.submodulo === \"FishTank\") {\n            sql = `INSERT INTO actuadores_peces \n                   (timestamp, modulo, submodulo, dispositivo, descripcion, start, stop, valstatus, fault)\n                   VALUES ('${fecha}', '${f.modulo}', '${f.submodulo}', '${f.dispositivo}', '${f.descripcion}', ${f.start}, ${f.stop}, ${f.valstatus}, ${f.fault})`;\n        }\n\n        else if (f.submodulo === \"AquaponicGrowBed\") {\n            sql = `INSERT INTO actuadores_plantas \n                   (timestamp, modulo, submodulo, dispositivo, descripcion, start, stop, valstatus, fault)\n                   VALUES ('${fecha}', '${f.modulo}', '${f.submodulo}', '${f.dispositivo}', '${f.descripcion}', ${f.start}, ${f.stop}, ${f.valstatus}, ${f.fault})`;\n        }\n    }\n\n    // ========================================\n    //          MATERIA PRIMA\n    // ========================================\n    else if (f.materia_prima !== undefined) {\n        sql = `INSERT INTO materia_prima \n               (timestamp, modulo, tipo, cantidad)\n               VALUES ('${fecha}', '${f.modulo}', '${f.materia_prima}', ${f.cantidad})`;\n    }\n\n    // Agregar consulta si se generó\n    if (sql !== \"\") queries.push(sql);\n}\n\n// Unir todas las consultas en un solo msg\nmsg.topic = queries.join(\"; \");\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1340,
+        "y": 620,
+        "wires": [
+            [
+                "bc2693969552bb1a"
+            ]
+        ]
+    }
+]
