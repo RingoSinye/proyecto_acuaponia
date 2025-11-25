@@ -1,0 +1,641 @@
+[
+    {
+        "id": "0a638c3737993a59",
+        "type": "inject",
+        "z": "45bf3cd9ae0624aa",
+        "name": "NBIRTH",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "spBv1.0/TEST/NBIRTH/T1",
+        "payload": "{\"timestamp\":\"\",\"metrics\":[{\"name\":\"Node Control/Rebirth\",\"datatype\":11,\"booleanValue\":false},{\"name\":\"bdSeq\",\"datatype\":8,\"longValue\":0},{\"name\":\"Analog_Sensors\",\"timestamp\":\"\",\"datatype\":19,\"templateValue\":{\"templateRef\":null,\"isDefinition\":true,\"metrics\":[{\"name\":\"Name\",\"stringValue\":\"\",\"datatype\":12,\"deadbandMode\":\"Off\"},{\"name\":\"Desc\",\"stringValue\":\"\",\"datatype\":12,\"deadbandMode\":\"Off\"},{\"name\":\"PV\",\"floatValue\":1,\"datatype\":9,\"deadbandMode\":\"Off\"},{\"name\":\"HH\",\"floatValue\":1,\"datatype\":9,\"deadbandMode\":\"Off\"},{\"name\":\"LL\",\"floatValue\":1,\"datatype\":9,\"deadbandMode\":\"Off\"},{\"name\":\"EU\",\"stringValue\":\"\",\"datatype\":12,\"deadbandMode\":\"Off\"},{\"name\":\"MAX\",\"floatValue\":1,\"datatype\":9,\"deadbandMode\":\"Off\"},{\"name\":\"MIN\",\"floatValue\":1,\"datatype\":9,\"deadbandMode\":\"Off\"},{\"name\":\"Fault\",\"booleanValue\":false,\"datatype\":11,\"deadbandMode\":\"Off\"}]}},{\"name\":\"Digital_Sensors\",\"timestamp\":\"\",\"datatype\":19,\"templateValue\":{\"templateRef\":null,\"isDefinition\":true,\"metrics\":[{\"name\":\"Name\",\"stringValue\":\"\",\"datatype\":12,\"deadbandMode\":\"Off\"},{\"name\":\"Desc\",\"stringValue\":\"\",\"datatype\":12,\"deadbandMode\":\"Off\"},{\"name\":\"PV\",\"booleanValue\":false,\"datatype\":11,\"deadbandMode\":\"Off\"},{\"name\":\"Target\",\"booleanValue\":false,\"datatype\":11,\"deadbandMode\":\"Off\"},{\"name\":\"Fault\",\"booleanValue\":false,\"datatype\":11,\"deadbandMode\":\"Off\"}]}},{\"name\":\"Actuadores\",\"timestamp\":\"\",\"datatype\":19,\"templateValue\":{\"templateRef\":null,\"isDefinition\":true,\"metrics\":[{\"name\":\"Name\",\"stringValue\":\"\",\"datatype\":12,\"deadbandMode\":\"Off\"},{\"name\":\"Desc\",\"stringValue\":\"\",\"datatype\":12,\"deadbandMode\":\"Off\"},{\"name\":\"Start\",\"booleanValue\":false,\"datatype\":11,\"deadbandMode\":\"Off\"},{\"name\":\"Stop\",\"booleanValue\":false,\"datatype\":11,\"deadbandMode\":\"Off\"},{\"name\":\"ValStatus\",\"intValue\":0,\"datatype\":1,\"deadbandMode\":\"Off\"},{\"name\":\"fault\",\"booleanValue\":false,\"datatype\":11,\"deadbandMode\":\"Off\"}]}}],\"seq\":0}",
+        "payloadType": "json",
+        "x": 360,
+        "y": 200,
+        "wires": [
+            [
+                "a0c5464a2cd3d03d",
+                "3a61171eded77bd5"
+            ]
+        ]
+    },
+    {
+        "id": "62715e5e3596cc17",
+        "type": "comment",
+        "z": "45bf3cd9ae0624aa",
+        "name": "Crea UDT Sensores y Actuadores",
+        "info": "",
+        "x": 340,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "9d1174f762faae4c",
+        "type": "comment",
+        "z": "45bf3cd9ae0624aa",
+        "name": "Crea UDT, Growbed, FishTank, Aquaponic",
+        "info": "",
+        "x": 360,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "feb525819adfea7b",
+        "type": "inject",
+        "z": "45bf3cd9ae0624aa",
+        "name": "NBIRTH",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "spBv1.0/TEST/NBIRTH/T1",
+        "payload": "{\"timestamp\":\"\",\"metrics\":[{\"name\":\"Node Control/Rebirth\",\"datatype\":11,\"booleanValue\":false},{\"name\":\"bdSeq\",\"datatype\":8,\"longValue\":0},{\"name\":\"AquaponicGrowBed\",\"timestamp\":\"\",\"datatype\":19,\"templateValue\":{\"templateRef\":null,\"isDefinition\":true,\"metrics\":[{\"name\":\"AIT_T2_01\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Analog_Sensors\",\"isDefinition\":false}},{\"name\":\"EIT_T2_01\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Analog_Sensors\",\"isDefinition\":false}},{\"name\":\"LSL_T2_01\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Digital_Sensors\",\"isDefinition\":false}},{\"name\":\"Pump_T2_01\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Actuadores\",\"isDefinition\":false}},{\"name\":\"TIT_T2_01\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Analog_Sensors\",\"isDefinition\":false}}]}},{\"name\":\"FishTank\",\"timestamp\":\"\",\"datatype\":19,\"templateValue\":{\"templateRef\":null,\"isDefinition\":true,\"metrics\":[{\"name\":\"AIT_T1_01\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Analog_Sensors\",\"isDefinition\":false}},{\"name\":\"AIT_T1_02\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Analog_Sensors\",\"isDefinition\":false}},{\"name\":\"LIT_T1_01\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Analog_Sensors\",\"isDefinition\":false}},{\"name\":\"LSH_T1_01\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Digital_Sensors\",\"isDefinition\":false}},{\"name\":\"LSL_T1_01\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Digital_Sensors\",\"isDefinition\":false}},{\"name\":\"Pump_T1_01\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Actuadores\",\"isDefinition\":false}},{\"name\":\"Pump_T1_02\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Actuadores\",\"isDefinition\":false}},{\"name\":\"Pump_T1_03\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Actuadores\",\"isDefinition\":false}},{\"name\":\"TIT_T1_01\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Analog_Sensors\",\"isDefinition\":false}}]}},{\"name\":\"Aquaponic\",\"timestamp\":\"\",\"datatype\":19,\"templateValue\":{\"templateRef\":null,\"isDefinition\":true,\"metrics\":[{\"name\":\"AquaponicGrowBed\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"AquaponicGrowBed\",\"isDefinition\":false}},{\"name\":\"Fish\",\"floatValue\":1,\"datatype\":9,\"deadbandMode\":\"Off\"},{\"name\":\"FishTank\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"FishTank\",\"isDefinition\":false}},{\"name\":\"Module\",\"stringValue\":\"Aquaponicx\",\"datatype\":12,\"deadbandMode\":\"Off\"},{\"name\":\"Vegetables\",\"floatValue\":1,\"datatype\":9,\"deadbandMode\":\"Off\"}]}}],\"seq\":0}",
+        "payloadType": "json",
+        "x": 380,
+        "y": 280,
+        "wires": [
+            [
+                "469739388deee7c7"
+            ]
+        ]
+    },
+    {
+        "id": "32414644218704ca",
+        "type": "inject",
+        "z": "45bf3cd9ae0624aa",
+        "name": "DBIRTH",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "spBv1.0/TEST/DBIRTH/T1/AQ",
+        "payload": "{\"timestamp\":\"\",\"metrics\":[{\"name\":\"Aquaponic1\",\"timestamp\":\"\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Aquaponic\",\"isDefinition\":false,\"metrics\":[{\"name\":\"AquaponicGrowBed1\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"AquaponicGrowBed\",\"isDefinition\":false}},{\"name\":\"Fish\",\"floatValue\":1500,\"datatype\":9},{\"name\":\"FishTank1\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"FishTank\",\"isDefinition\":false}},{\"name\":\"Module\",\"stringValue\":\"Aquaponicx\",\"datatype\":12},{\"name\":\"Vegetables\",\"floatValue\":350,\"datatype\":9}]}}],\"seq\":\"\"}",
+        "payloadType": "json",
+        "x": 380,
+        "y": 380,
+        "wires": [
+            [
+                "1718326c5a5ba106"
+            ]
+        ]
+    },
+    {
+        "id": "a0cf5c2a96ec1e4e",
+        "type": "encode",
+        "z": "45bf3cd9ae0624aa",
+        "name": "E_sparkplug_b",
+        "protofile": "805621feeb69dc79",
+        "protoType": "Payload",
+        "x": 1100,
+        "y": 280,
+        "wires": [
+            [
+                "da2e88c03de9502f",
+                "3a3fe0fc884c6a7e"
+            ]
+        ]
+    },
+    {
+        "id": "da2e88c03de9502f",
+        "type": "mqtt out",
+        "z": "45bf3cd9ae0624aa",
+        "name": "MQTT Out",
+        "topic": "",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "41f3249dec2d969e",
+        "x": 1350,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "469739388deee7c7",
+        "type": "function",
+        "z": "45bf3cd9ae0624aa",
+        "name": "Definir Timestamp",
+        "func": "//Se captura el momento presente y se incluye en el mensaje\nvar time = new Date();\nmsg.payload[\"timestamp\"] = time.getTime();\n//metrics[2].timestamp\nmsg.payload[\"metrics\"][2][\"timestamp\"] = time.getTime();\nmsg.payload[\"metrics\"][3][\"timestamp\"] = time.getTime();\nmsg.payload[\"metrics\"][4][\"timestamp\"] = time.getTime();\n//metrics[2].timestamp\n//metrics[2].templateValue.metrics[0].timestamp\n// metrics[2].templateValue.metrics[1].timestamp\n//msg.payload[\"metrics\"][2][\"templateValue\"][\"metrics\"][0][\"timestamp\"] = time.getTime();\n//msg.payload[\"metrics\"][2][\"templateValue\"][\"metrics\"][1][\"timestamp\"] = time.getTime();\n//for(let i=0; i < msg.payload[\"metrics\"][2][\"templateValue\"][\"metrics\"].length; i++){\n//    msg.payload[\"metrics\"][2][\"templateValue\"][\"metrics\"][i][\"timestamp\"] = time.getTime();\n//}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 260,
+        "wires": [
+            [
+                "a0cf5c2a96ec1e4e"
+            ]
+        ]
+    },
+    {
+        "id": "3a61171eded77bd5",
+        "type": "function",
+        "z": "45bf3cd9ae0624aa",
+        "name": "Definir Timestamp",
+        "func": "//Se captura el momento presente y se incluye en el mensaje\nvar time = new Date();\nmsg.payload[\"timestamp\"] = time.getTime();\nmsg.payload[\"metrics\"][2][\"timestamp\"] = time.getTime();\nmsg.payload[\"metrics\"][3][\"timestamp\"] = time.getTime();\nmsg.payload[\"metrics\"][4][\"timestamp\"] = time.getTime();\n//for(let i=0; i < msg.payload[\"metrics\"][2][\"templateValue\"][\"metrics\"].length; i++){\n//    msg.payload[\"metrics\"][2][\"templateValue\"][\"metrics\"][i][\"timestamp\"] = time.getTime();\n//}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 200,
+        "wires": [
+            [
+                "a0cf5c2a96ec1e4e"
+            ]
+        ]
+    },
+    {
+        "id": "a0c5464a2cd3d03d",
+        "type": "function",
+        "z": "45bf3cd9ae0624aa",
+        "name": "init_seq",
+        "func": "//Incializar la secuencia global de mensajes\nglobal.set(\"seqGlobal\", 0);",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cc6ad697dd70eafa",
+        "type": "function",
+        "z": "45bf3cd9ae0624aa",
+        "name": "set_seq",
+        "func": "//Se actualiza la secuencia de los mensajes\nvar seq = global.get(\"seqGlobal\");\nseq = seq + 1;\nif (seq == 256) {\n    seq = 0;\n}\nmsg.payload[\"seq\"] = seq;\nglobal.set(\"seqGlobal\", seq);\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 380,
+        "wires": [
+            [
+                "a0cf5c2a96ec1e4e"
+            ]
+        ]
+    },
+    {
+        "id": "1718326c5a5ba106",
+        "type": "function",
+        "z": "45bf3cd9ae0624aa",
+        "name": "Definir Timestamp",
+        "func": "//Se captura el momento presente y se incluye en el mensaje\nvar time = new Date();\n\n//var x_prima = Math.random() * 10;\n\nmsg.payload[\"timestamp\"] = time.getTime();\n//msg.payload[\"metrics\"][0][\"timestamp\"] = time.getTime();\n\nfor (var i = 0; i < 1; i++) {\n    msg.payload.metrics[i].timestamp = time.getTime();\n}\n\n//msg.payload[\"metrics\"][0][\"templateValue\"][\"metrics\"][0][\"floatValue\"] = x_prima;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 380,
+        "wires": [
+            [
+                "cc6ad697dd70eafa"
+            ]
+        ]
+    },
+    {
+        "id": "16232952ffdd2375",
+        "type": "inject",
+        "z": "45bf3cd9ae0624aa",
+        "name": "DDATA",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "spBv1.0/TEST/DDATA/T1/AQ",
+        "payload": "{\"timestamp\":\"\",\"metrics\":[{\"name\":\"Aquaponic1\",\"timestamp\":\"\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Aquaponic\",\"isDefinition\":false,\"metrics\":[{\"name\":\"AquaponicGrowBed\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"AquaponicGrowBed\",\"isDefinition\":false,\"metrics\":[{\"name\":\"AIT_T2_01\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Analog_Sensors\",\"isDefinition\":false,\"metrics\":[{\"name\":\"PV\",\"floatValue\":50,\"datatype\":9}]}},{\"name\":\"EIT_T2_01\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Analog_Sensors\",\"isDefinition\":false,\"metrics\":[{\"name\":\"PV\",\"floatValue\":300,\"datatype\":9}]}},{\"name\":\"LSL_T2_01\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Digital_Sensors\",\"isDefinition\":false,\"metrics\":[{\"name\":\"PV\",\"booleanValue\":false,\"datatype\":11}]}},{\"name\":\"Pump_T2_01\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Actuadores\",\"isDefinition\":false,\"metrics\":[{\"name\":\"Name\",\"stringValue\":\"Pump_T2_01\",\"datatype\":12},{\"name\":\"Desc\",\"stringValue\":\"Pump Recylce\",\"datatype\":12},{\"name\":\"Start\",\"booleanValue\":false,\"datatype\":11},{\"name\":\"Stop\",\"booleanValue\":false,\"datatype\":11},{\"name\":\"ValStatus\",\"floatValue\":2,\"datatype\":9},{\"name\":\"Fault\",\"booleanValue\":false,\"datatype\":11}]}},{\"name\":\"TIT_T2_01\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Analog_Sensors\",\"isDefinition\":false,\"metrics\":[{\"name\":\"PV\",\"floatValue\":30,\"datatype\":9}]}}]}},{\"name\":\"Fish\",\"floatValue\":3000,\"datatype\":9},{\"name\":\"FishTank\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"FishTank\",\"isDefinition\":false,\"metrics\":[{\"name\":\"AIT_T1_01\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Analog_Sensors\",\"isDefinition\":false,\"metrics\":[{\"name\":\"PV\",\"floatValue\":8,\"datatype\":9}]}},{\"name\":\"AIT_T1_02\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Analog_Sensors\",\"isDefinition\":false,\"metrics\":[{\"name\":\"PV\",\"floatValue\":7,\"datatype\":9}]}},{\"name\":\"LIT_T1_01\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Analog_Sensors\",\"isDefinition\":false,\"metrics\":[{\"name\":\"PV\",\"floatValue\":300,\"datatype\":9}]}},{\"name\":\"LSH_T1_01\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Digital_Sensors\",\"isDefinition\":false,\"metrics\":[{\"name\":\"PV\",\"booleanValue\":false,\"datatype\":11}]}},{\"name\":\"LSL_T1_01\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Digital_Sensors\",\"isDefinition\":false,\"metrics\":[{\"name\":\"PV\",\"booleanValue\":false,\"datatype\":11}]}},{\"name\":\"Pump_T1_01\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Actuadores\",\"isDefinition\":false,\"metrics\":[{\"name\":\"Name\",\"stringValue\":\"Pump_T1_01\",\"datatype\":12},{\"name\":\"Desc\",\"stringValue\":\"Water Pump\",\"datatype\":12},{\"name\":\"Start\",\"booleanValue\":false,\"datatype\":11},{\"name\":\"Stop\",\"booleanValue\":false,\"datatype\":11},{\"name\":\"ValStatus\",\"floatValue\":2,\"datatype\":9},{\"name\":\"Fault\",\"booleanValue\":false,\"datatype\":11}]}},{\"name\":\"Pump_T1_02\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Actuadores\",\"isDefinition\":false,\"metrics\":[{\"name\":\"Name\",\"stringValue\":\"Pump_T1_02\",\"datatype\":12},{\"name\":\"Desc\",\"stringValue\":\"Air Pump\",\"datatype\":12},{\"name\":\"Start\",\"booleanValue\":false,\"datatype\":11},{\"name\":\"Stop\",\"booleanValue\":false,\"datatype\":11},{\"name\":\"ValStatus\",\"floatValue\":2,\"datatype\":9},{\"name\":\"Fault\",\"booleanValue\":false,\"datatype\":11}]}},{\"name\":\"Pump_T1_03\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Actuadores\",\"isDefinition\":false,\"metrics\":[{\"name\":\"Name\",\"stringValue\":\"Pump_T1_03\",\"datatype\":12},{\"name\":\"Desc\",\"stringValue\":\"Chemical Pump\",\"datatype\":12},{\"name\":\"Start\",\"booleanValue\":false,\"datatype\":11},{\"name\":\"Stop\",\"booleanValue\":false,\"datatype\":11},{\"name\":\"ValStatus\",\"floatValue\":2,\"datatype\":9},{\"name\":\"Fault\",\"booleanValue\":false,\"datatype\":11}]}},{\"name\":\"TIT_T1_01\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Analog_Sensors\",\"isDefinition\":false,\"metrics\":[{\"name\":\"PV\",\"floatValue\":27.5,\"datatype\":9}]}}]}},{\"name\":\"Module\",\"stringValue\":\"Aquaponic1\",\"datatype\":12},{\"name\":\"Vegetables\",\"floatValue\":350,\"datatype\":9}]}}],\"seq\":\"\"}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 640,
+        "wires": [
+            [
+                "e66362b6013b0235"
+            ]
+        ]
+    },
+    {
+        "id": "4f83218e6d9b1856",
+        "type": "function",
+        "z": "45bf3cd9ae0624aa",
+        "name": "set_seq",
+        "func": "//Se actualiza la secuencia de los mensajes\nvar seq = global.get(\"seqGlobal\");\nseq = seq + 1;\nif (seq == 256) {\n    seq = 0;\n}\nmsg.payload[\"seq\"] = seq;\nglobal.set(\"seqGlobal\", seq);\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 620,
+        "wires": [
+            [
+                "a0cf5c2a96ec1e4e",
+                "a37b6b73c8582d0e",
+                "2ad38da3cbb276d2"
+            ]
+        ]
+    },
+    {
+        "id": "30b312842ea7cbd1",
+        "type": "function",
+        "z": "45bf3cd9ae0624aa",
+        "name": "Definir Timestamp",
+        "func": "//Se captura el momento presente y se incluye en el mensaje\nvar time = new Date();\n\nmsg.payload[\"timestamp\"] = time.getTime();\n//msg.payload[\"metrics\"][0][\"timestamp\"] = time.getTime();\n\nfor (var i = 0; i < 1; i++) {\n    msg.payload.metrics[i].timestamp = time.getTime();\n}\n//metrics[0].templateValue.metrics[0].templateValue.metrics[0].templateValue.metrics[2].floatValue\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 620,
+        "wires": [
+            [
+                "4f83218e6d9b1856"
+            ]
+        ]
+    },
+    {
+        "id": "3c7035a0405b3ace",
+        "type": "comment",
+        "z": "45bf3cd9ae0624aa",
+        "name": "Nacimiento de Aquaponic",
+        "info": "",
+        "x": 370,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "3bec7fa360c57972",
+        "type": "comment",
+        "z": "45bf3cd9ae0624aa",
+        "name": "Envío de datos tiempo real",
+        "info": "",
+        "x": 330,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "bd87c1f02f3255d3",
+        "type": "function",
+        "z": "45bf3cd9ae0624aa",
+        "name": "Cambiar PV",
+        "func": "// Obtener el tiempo actual en segundos\nvar t = (new Date()).getTime() / 1000;\n// Generar un valor de pH basado en una función seno con un offset aleatorio\nfunction generatePhValue(t) {\n    var offset = Math.random() * 0.4 - 0.2;// Generar un offset aleatorio entre -0.2 y 0.2\n    var sineValue = (Math.sin(t*0.1) + 7) ;// Calcular el valor seno y escalarlo al rango 6-8\n    var phValue = sineValue;// Añadir el offset al valor seno\n    phValue = Math.max(6, Math.min(8, phValue));// Asegurarse de que el valor esté dentro del rango 1 a 14\n    return phValue;\n}\n// Generar un valor de oxígeno disuelto basado en una función seno con un offset aleatorio\nfunction generateDoValue(t) {\n    var offset = Math.random() * - 0.5;// Generar un offset aleatorio entre -0.5 y 0.5\n    var sineValue = (Math.sin(t * 0.2) + 2) * 5;// Calcular el valor seno y escalarlo al rango 5 a 15\n    var doValue = sineValue + offset;// Añadir el offset al valor seno\n    doValue = Math.max(5, Math.min(15, doValue));// Asegurarse de que el valor esté dentro del rango 5 a 15\n    return doValue;\n}\n// Generar un valor de temperatura del agua basado en una función seno con un offset aleatorio\nfunction generateWaterTempValue(t) {\n    var offset = Math.random() * 2 - 1; // Generar un offset aleatorio entre -1 y 1\n    var sineValue = (Math.sin(t * 0.1) + 1) * 6 + 18; // Calcular el valor seno y escalarlo al rango 18 a 30\n    var waterTempValue = sineValue + offset; // Añadir el offset al valor seno\n    waterTempValue = Math.max(18, Math.min(30, waterTempValue)); // Asegurarse de que el valor esté dentro del rango 18 a 30\n    return waterTempValue;\n}\n\n// Generar un valor de nivel de agua basado en una función seno con un offset aleatorio\nfunction generateWaterLevelValue(t) {\n    var offset = Math.random() * 2 - 1; // Generar un offset aleatorio entre -5 y 5\n    var sineValue = (Math.sin(t * 0.07)) * 5; // Calcular el valor seno y escalarlo al rango 0 a 100\n    var waterLevelValue = sineValue + 100 + offset; // Añadir el offset al valor seno\n    waterLevelValue = Math.max(0, Math.min(200, waterLevelValue)); // Asegurarse de que el valor esté dentro del rango 0 a 100\n    return waterLevelValue;\n}\n\n// Generar un valor de temperatura ambiente basado en una función seno con un offset aleatorio\nfunction generateAmbientTempValue(t) {\n    var offset = Math.random() * 2 - 1; // Generar un offset aleatorio entre -1 y 1\n    var sineValue = (Math.sin(t * 0.1) + 1) * 7.5 + 20; // Calcular el valor seno y escalarlo al rango 20 a 35\n    var ambientTempValue = sineValue + offset; // Añadir el offset al valor seno\n    ambientTempValue = Math.max(20, Math.min(35, ambientTempValue)); // Asegurarse de que el valor esté dentro del rango 20 a 35\n    return ambientTempValue;\n}\n\n// Generar un valor de humedad basado en una función seno con un offset aleatorio\nfunction generateHumidityValue(t) {\n    var offset = Math.random() * 10 - 5; // Generar un offset aleatorio entre -5 y 5\n    var sineValue = (Math.sin(t * 0.05) + 1) * 20 + 40; // Calcular el valor seno y escalarlo al rango 40 a 80\n    var humidityValue = sineValue + offset; // Añadir el offset al valor seno\n    humidityValue = Math.max(40, Math.min(80, humidityValue)); // Asegurarse de que el valor esté dentro del rango 40 a 80\n    return humidityValue;\n}\n\n// Generar un valor de nivel de luz basado en una función seno con un offset aleatorio\nfunction generateLightLevelValue(t) {\n    var offset = Math.random() * 50 - 25; // Generar un offset aleatorio entre -25 y 25\n    var sineValue = (Math.sin(t * 0.01) + 1) * 250; // Calcular el valor seno y escalarlo al rango 0 a 500\n    var lightLevelValue = sineValue + offset; // Añadir el offset al valor seno\n    lightLevelValue = Math.max(0, Math.min(500, lightLevelValue)); // Asegurarse de que el valor esté dentro del rango 0 a 500\n    return lightLevelValue;\n}\n//metrics[0].timestamp\n//metrics[0].templateValue.metrics[1]\n//metrics[0].templateValue.metrics[1].floatValue\n//metrics[1].templateValue.metrics[1].floatValue\n//msg.payload[\"metrics\"][0][\"templateValue\"][\"metrics\"][1][\"floatValue\"] = generatePhValue(t);\n//msg.payload[\"metrics\"][1][\"templateValue\"][\"metrics\"][1][\"floatValue\"] = generateDoValue(t);\n//msg.payload[\"metrics\"][2][\"templateValue\"][\"metrics\"][1][\"floatValue\"] = generateWaterTempValue(t);\n//msg.payload[\"metrics\"][3][\"templateValue\"][\"metrics\"][1][\"floatValue\"] = generateWaterLevelValue(t);\n//msg.payload[\"metrics\"][4][\"templateValue\"][\"metrics\"][1][\"floatValue\"] = generateAmbientTempValue(t);\n//msg.payload[\"metrics\"][5][\"templateValue\"][\"metrics\"][1][\"floatValue\"] = generateHumidityValue(t);\n//msg.payload[\"metrics\"][6][\"templateValue\"][\"metrics\"][1][\"floatValue\"] = generateLightLevelValue(t);\n\nmsg.payload.metrics[0].templateValue.metrics[0].templateValue.metrics[0].templateValue.metrics[0].floatValue = generateHumidityValue(t);\nmsg.payload.metrics[0].templateValue.metrics[0].templateValue.metrics[1].templateValue.metrics[0].floatValue = generateLightLevelValue(t);\nmsg.payload.metrics[0].templateValue.metrics[0].templateValue.metrics[4].templateValue.metrics[0].floatValue = generateAmbientTempValue(t);\n//metrics[0].templateValue.metrics[0].templateValue.metrics[1].templateValue.metrics[2].floatValue\n//metrics[0].templateValue.metrics[0].templateValue.metrics[0].templateValue.metrics[0].floatValue\n\nmsg.payload.metrics[0].templateValue.metrics[2].templateValue.metrics[0].templateValue.metrics[0].floatValue = generateDoValue(t);\nmsg.payload.metrics[0].templateValue.metrics[2].templateValue.metrics[1].templateValue.metrics[0].floatValue = generatePhValue(t);\nmsg.payload.metrics[0].templateValue.metrics[2].templateValue.metrics[2].templateValue.metrics[0].floatValue = generateWaterLevelValue(t);\nmsg.payload.metrics[0].templateValue.metrics[2].templateValue.metrics[8].templateValue.metrics[0].floatValue =  generateWaterTempValue(t);\n\nreturn msg;\n\n\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 620,
+        "wires": [
+            [
+                "30b312842ea7cbd1"
+            ]
+        ]
+    },
+    {
+        "id": "e66362b6013b0235",
+        "type": "trigger",
+        "z": "45bf3cd9ae0624aa",
+        "name": "",
+        "op1": "",
+        "op2": "0",
+        "op1type": "pay",
+        "op2type": "str",
+        "duration": "-1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "0",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 300,
+        "y": 620,
+        "wires": [
+            [
+                "bd87c1f02f3255d3"
+            ]
+        ]
+    },
+    {
+        "id": "3107d9905e7bf71e",
+        "type": "inject",
+        "z": "45bf3cd9ae0624aa",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 130,
+        "y": 600,
+        "wires": [
+            [
+                "e66362b6013b0235"
+            ]
+        ]
+    },
+    {
+        "id": "21f759bfd4b6dfd7",
+        "type": "inject",
+        "z": "45bf3cd9ae0624aa",
+        "name": "DDATA",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "spBv1.0/TEST/DDATA/T1/AQ",
+        "payload": "{\"timestamp\":\"\",\"metrics\":[{\"name\":\"Aquaponic1\",\"timestamp\":\"\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Aquaponic\",\"isDefinition\":false,\"metrics\":[{\"name\":\"AquaponicGrowBed\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"AquaponicGrowBed\",\"isDefinition\":false,\"metrics\":[{\"name\":\"AIT_T2_01\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Analog_Sensors\",\"isDefinition\":false,\"metrics\":[{\"name\":\"Name\",\"stringValue\":\"AIT_T2_01\",\"datatype\":12},{\"name\":\"Desc\",\"stringValue\":\"Humidity\",\"datatype\":12},{\"name\":\"PV\",\"floatValue\":50,\"datatype\":9},{\"name\":\"HH\",\"floatValue\":90,\"datatype\":9},{\"name\":\"LL\",\"floatValue\":40,\"datatype\":9},{\"name\":\"EU\",\"stringValue\":\"%\",\"datatype\":12},{\"name\":\"MAX\",\"floatValue\":100,\"datatype\":9},{\"name\":\"MIN\",\"floatValue\":0,\"datatype\":9},{\"name\":\"Fault\",\"booleanValue\":false,\"datatype\":11}]}},{\"name\":\"EIT_T2_01\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Analog_Sensors\",\"isDefinition\":false,\"metrics\":[{\"name\":\"Name\",\"stringValue\":\"EIT_T1_01\",\"datatype\":12},{\"name\":\"Desc\",\"stringValue\":\"Light\",\"datatype\":12},{\"name\":\"PV\",\"floatValue\":300,\"datatype\":9},{\"name\":\"HH\",\"floatValue\":400,\"datatype\":9},{\"name\":\"LL\",\"floatValue\":100,\"datatype\":9},{\"name\":\"EU\",\"stringValue\":\"PPFD\",\"datatype\":12},{\"name\":\"MAX\",\"floatValue\":500,\"datatype\":9},{\"name\":\"MIN\",\"floatValue\":0,\"datatype\":9},{\"name\":\"Fault\",\"booleanValue\":false,\"datatype\":11}]}},{\"name\":\"LSL_T2_01\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Digital_Sensors\",\"isDefinition\":false,\"metrics\":[{\"name\":\"Name\",\"stringValue\":\"LSL_T2_01\",\"datatype\":12},{\"name\":\"Desc\",\"stringValue\":\"Switch Level Low\",\"datatype\":12},{\"name\":\"PV\",\"booleanValue\":false,\"datatype\":11},{\"name\":\"Target\",\"booleanValue\":false,\"datatype\":11},{\"name\":\"Fault\",\"booleanValue\":false,\"datatype\":11}]}},{\"name\":\"Pump_T2_01\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Actuadores\",\"isDefinition\":false,\"metrics\":[{\"name\":\"Name\",\"stringValue\":\"Pump_T2_01\",\"datatype\":12},{\"name\":\"Desc\",\"stringValue\":\"Pump Recylce\",\"datatype\":12},{\"name\":\"Start\",\"booleanValue\":false,\"datatype\":11},{\"name\":\"Stop\",\"booleanValue\":false,\"datatype\":11},{\"name\":\"ValStatus\",\"floatValue\":2,\"datatype\":9},{\"name\":\"Fault\",\"booleanValue\":false,\"datatype\":11}]}},{\"name\":\"TIT_T2_01\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Analog_Sensors\",\"isDefinition\":false,\"metrics\":[{\"name\":\"Name\",\"stringValue\":\"TIT_T2_01\",\"datatype\":12},{\"name\":\"Desc\",\"stringValue\":\"Temperature\",\"datatype\":12},{\"name\":\"PV\",\"floatValue\":30,\"datatype\":9},{\"name\":\"HH\",\"floatValue\":35,\"datatype\":9},{\"name\":\"LL\",\"floatValue\":10,\"datatype\":9},{\"name\":\"EU\",\"stringValue\":\"°C\",\"datatype\":12},{\"name\":\"MAX\",\"floatValue\":50,\"datatype\":9},{\"name\":\"MIN\",\"floatValue\":0,\"datatype\":9},{\"name\":\"Fault\",\"booleanValue\":false,\"datatype\":11}]}}]}},{\"name\":\"Fish\",\"floatValue\":3000,\"datatype\":9},{\"name\":\"FishTank\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"FishTank\",\"isDefinition\":false,\"metrics\":[{\"name\":\"AIT_T1_01\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Analog_Sensors\",\"isDefinition\":false,\"metrics\":[{\"name\":\"Name\",\"stringValue\":\"AIT_T1_01\",\"datatype\":12},{\"name\":\"Desc\",\"stringValue\":\"Dissolved O\",\"datatype\":12},{\"name\":\"PV\",\"floatValue\":8,\"datatype\":9},{\"name\":\"HH\",\"floatValue\":10,\"datatype\":9},{\"name\":\"LL\",\"floatValue\":3,\"datatype\":9},{\"name\":\"EU\",\"stringValue\":\"mg/L\",\"datatype\":12},{\"name\":\"MAX\",\"floatValue\":15,\"datatype\":9},{\"name\":\"MIN\",\"floatValue\":0,\"datatype\":9},{\"name\":\"Fault\",\"booleanValue\":false,\"datatype\":11}]}},{\"name\":\"AIT_T1_02\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Analog_Sensors\",\"isDefinition\":false,\"metrics\":[{\"name\":\"Name\",\"stringValue\":\"AIT_T1_02\",\"datatype\":12},{\"name\":\"Desc\",\"stringValue\":\"pH\",\"datatype\":12},{\"name\":\"PV\",\"floatValue\":7,\"datatype\":9},{\"name\":\"HH\",\"floatValue\":9.5,\"datatype\":9},{\"name\":\"LL\",\"floatValue\":5.5,\"datatype\":9},{\"name\":\"EU\",\"stringValue\":\"\",\"datatype\":12},{\"name\":\"MAX\",\"floatValue\":14,\"datatype\":9},{\"name\":\"MIN\",\"floatValue\":0,\"datatype\":9},{\"name\":\"Fault\",\"booleanValue\":false,\"datatype\":11}]}},{\"name\":\"LIT_T1_01\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Analog_Sensors\",\"isDefinition\":false,\"metrics\":[{\"name\":\"Name\",\"stringValue\":\"LIT_T1_01\",\"datatype\":12},{\"name\":\"Desc\",\"stringValue\":\"Nivel\",\"datatype\":12},{\"name\":\"PV\",\"floatValue\":100,\"datatype\":9},{\"name\":\"HH\",\"floatValue\":103,\"datatype\":9},{\"name\":\"LL\",\"floatValue\":96,\"datatype\":9},{\"name\":\"EU\",\"stringValue\":\"cm\",\"datatype\":12},{\"name\":\"MAX\",\"floatValue\":120,\"datatype\":9},{\"name\":\"MIN\",\"floatValue\":80,\"datatype\":9},{\"name\":\"Fault\",\"booleanValue\":false,\"datatype\":11}]}},{\"name\":\"LSH_T1_01\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Digital_Sensors\",\"isDefinition\":false,\"metrics\":[{\"name\":\"Name\",\"stringValue\":\"LSH_T1_01\",\"datatype\":12},{\"name\":\"Desc\",\"stringValue\":\"Switch Level High\",\"datatype\":12},{\"name\":\"PV\",\"booleanValue\":false,\"datatype\":11},{\"name\":\"Target\",\"booleanValue\":false,\"datatype\":11},{\"name\":\"Fault\",\"booleanValue\":false,\"datatype\":11}]}},{\"name\":\"LSL_T1_01\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Digital_Sensors\",\"isDefinition\":false,\"metrics\":[{\"name\":\"Name\",\"stringValue\":\"LSL_T1_01\",\"datatype\":12},{\"name\":\"Desc\",\"stringValue\":\"Switch Level Low\",\"datatype\":12},{\"name\":\"PV\",\"booleanValue\":false,\"datatype\":11},{\"name\":\"Target\",\"booleanValue\":false,\"datatype\":11},{\"name\":\"Fault\",\"booleanValue\":false,\"datatype\":11}]}},{\"name\":\"Pump_T1_01\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Actuadores\",\"isDefinition\":false,\"metrics\":[{\"name\":\"Name\",\"stringValue\":\"Pump_T1_01\",\"datatype\":12},{\"name\":\"Desc\",\"stringValue\":\"Water Pump\",\"datatype\":12},{\"name\":\"Start\",\"booleanValue\":false,\"datatype\":11},{\"name\":\"Stop\",\"booleanValue\":false,\"datatype\":11},{\"name\":\"ValStatus\",\"floatValue\":2,\"datatype\":9},{\"name\":\"Fault\",\"booleanValue\":false,\"datatype\":11}]}},{\"name\":\"Pump_T1_02\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Actuadores\",\"isDefinition\":false,\"metrics\":[{\"name\":\"Name\",\"stringValue\":\"Pump_T1_02\",\"datatype\":12},{\"name\":\"Desc\",\"stringValue\":\"Air Pump\",\"datatype\":12},{\"name\":\"Start\",\"booleanValue\":false,\"datatype\":11},{\"name\":\"Stop\",\"booleanValue\":false,\"datatype\":11},{\"name\":\"ValStatus\",\"floatValue\":2,\"datatype\":9},{\"name\":\"Fault\",\"booleanValue\":false,\"datatype\":11}]}},{\"name\":\"Pump_T1_03\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Actuadores\",\"isDefinition\":false,\"metrics\":[{\"name\":\"Name\",\"stringValue\":\"Pump_T1_03\",\"datatype\":12},{\"name\":\"Desc\",\"stringValue\":\"Chemical Pump\",\"datatype\":12},{\"name\":\"Start\",\"booleanValue\":false,\"datatype\":11},{\"name\":\"Stop\",\"booleanValue\":false,\"datatype\":11},{\"name\":\"ValStatus\",\"floatValue\":2,\"datatype\":9},{\"name\":\"Fault\",\"booleanValue\":false,\"datatype\":11}]}},{\"name\":\"TIT_T1_01\",\"datatype\":19,\"templateValue\":{\"templateRef\":\"Analog_Sensors\",\"isDefinition\":false,\"metrics\":[{\"name\":\"Name\",\"stringValue\":\"TIT_T1_01\",\"datatype\":12},{\"name\":\"Desc\",\"stringValue\":\"Temperature\",\"datatype\":12},{\"name\":\"PV\",\"floatValue\":27.5,\"datatype\":9},{\"name\":\"HH\",\"floatValue\":35,\"datatype\":9},{\"name\":\"LL\",\"floatValue\":10,\"datatype\":9},{\"name\":\"EU\",\"stringValue\":\"°C\",\"datatype\":12},{\"name\":\"MAX\",\"floatValue\":50,\"datatype\":9},{\"name\":\"MIN\",\"floatValue\":0,\"datatype\":9},{\"name\":\"Fault\",\"booleanValue\":false,\"datatype\":11}]}}]}},{\"name\":\"Module\",\"stringValue\":\"AquaponicX\",\"datatype\":12},{\"name\":\"Vegetables\",\"floatValue\":350,\"datatype\":9}]}}],\"seq\":\"\"}",
+        "payloadType": "json",
+        "x": 490,
+        "y": 480,
+        "wires": [
+            [
+                "9068eca7c0a8c6a7"
+            ]
+        ]
+    },
+    {
+        "id": "7319e8188828c52a",
+        "type": "function",
+        "z": "45bf3cd9ae0624aa",
+        "name": "set_seq",
+        "func": "//Se actualiza la secuencia de los mensajes\nvar seq = global.get(\"seqGlobal\");\nseq = seq + 1;\nif (seq == 256) {\n    seq = 0;\n}\nmsg.payload[\"seq\"] = seq;\nglobal.set(\"seqGlobal\", seq);\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 880,
+        "y": 480,
+        "wires": [
+            [
+                "a0cf5c2a96ec1e4e"
+            ]
+        ]
+    },
+    {
+        "id": "9068eca7c0a8c6a7",
+        "type": "function",
+        "z": "45bf3cd9ae0624aa",
+        "name": "Definir Timestamp",
+        "func": "//Se captura el momento presente y se incluye en el mensaje\nvar time = new Date();\n\nmsg.payload[\"timestamp\"] = time.getTime();\n//msg.payload[\"metrics\"][0][\"timestamp\"] = time.getTime();\n\nfor (var i = 0; i < 1; i++) {\n    msg.payload.metrics[i].timestamp = time.getTime();\n}\n//metrics[0].templateValue.metrics[0].templateValue.metrics[0].templateValue.metrics[2].floatValue\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 480,
+        "wires": [
+            [
+                "7319e8188828c52a"
+            ]
+        ]
+    },
+    {
+        "id": "6d54626709f0fba5",
+        "type": "comment",
+        "z": "45bf3cd9ae0624aa",
+        "name": "Datos base de cada sensor",
+        "info": "",
+        "x": 470,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "7f26ad91153946f3",
+        "type": "function",
+        "z": "45bf3cd9ae0624aa",
+        "name": "Cambiar_Timestamp",
+        "func": "let filas = msg.payload; // El array que viene del bloque anterior\nlet queries = [];\n\n// --- Función para convertir timestamp (ms) a formato MySQL DATETIME ---\nfunction formatDate(ts) {\n    let d = new Date(ts);\n    let yyyy = d.getFullYear();\n    let mm = String(d.getMonth() + 1).padStart(2, '0');\n    let dd = String(d.getDate()).padStart(2, '0');\n    let hh = String(d.getHours()).padStart(2, '0');\n    let mi = String(d.getMinutes()).padStart(2, '0');\n    let ss = String(d.getSeconds()).padStart(2, '0');\n    return `${yyyy}-${mm}-${dd} ${hh}:${mi}:${ss}`;\n}\n\n// --- Recorre todas las filas generadas ---\nfor (let f of filas) {\n\n    let fecha = formatDate(f.timestamp);\n    let sql = \"\";\n\n    // ========================================\n    //         SENSORES (analógicos o digitales)\n    // ========================================\n    if (f.variable !== undefined && f.valor !== undefined) {\n\n        if (f.submodulo === \"FishTank\") {\n            sql = `INSERT INTO sensores_peces \n                   (timestamp, modulo, submodulo, dispositivo, tipo, variable, valor)\n                   VALUES ('${fecha}', '${f.modulo}', '${f.submodulo}', '${f.dispositivo}', '${f.tipo}', '${f.variable}', ${f.valor})`;\n        }\n\n        else if (f.submodulo === \"AquaponicGrowBed\") {\n            sql = `INSERT INTO sensores_plantas \n                   (timestamp, modulo, submodulo, dispositivo, tipo, variable, valor)\n                   VALUES ('${fecha}', '${f.modulo}', '${f.submodulo}', '${f.dispositivo}', '${f.tipo}', '${f.variable}', ${f.valor})`;\n        }\n    }\n\n    // ========================================\n    //              ACTUADORES\n    // ========================================\n    else if (f.descripcion !== undefined) {\n\n        if (f.submodulo === \"FishTank\") {\n            sql = `INSERT INTO actuadores_peces \n                   (timestamp, modulo, submodulo, dispositivo, descripcion, start, stop, valstatus, fault)\n                   VALUES ('${fecha}', '${f.modulo}', '${f.submodulo}', '${f.dispositivo}', '${f.descripcion}', ${f.start}, ${f.stop}, ${f.valstatus}, ${f.fault})`;\n        }\n\n        else if (f.submodulo === \"AquaponicGrowBed\") {\n            sql = `INSERT INTO actuadores_plantas \n                   (timestamp, modulo, submodulo, dispositivo, descripcion, start, stop, valstatus, fault)\n                   VALUES ('${fecha}', '${f.modulo}', '${f.submodulo}', '${f.dispositivo}', '${f.descripcion}', ${f.start}, ${f.stop}, ${f.valstatus}, ${f.fault})`;\n        }\n    }\n\n    // ========================================\n    //          MATERIA PRIMA\n    // ========================================\n    else if (f.materia_prima !== undefined) {\n        sql = `INSERT INTO materia_prima \n               (timestamp, modulo, tipo, cantidad)\n               VALUES ('${fecha}', '${f.modulo}', '${f.materia_prima}', ${f.cantidad})`;\n    }\n\n    // Agregar consulta si se generó\n    if (sql !== \"\") queries.push(sql);\n}\n\n// Unir todas las consultas en un solo msg\nmsg.topic = queries.join(\"; \");\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1340,
+        "y": 620,
+        "wires": [
+            [
+                "bc2693969552bb1a"
+            ]
+        ]
+    },
+    {
+        "id": "bc2693969552bb1a",
+        "type": "mysql",
+        "z": "45bf3cd9ae0624aa",
+        "mydb": "2d6e576c681a4a7c",
+        "name": "",
+        "x": 1580,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a37b6b73c8582d0e",
+        "type": "debug",
+        "z": "45bf3cd9ae0624aa",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "2ad38da3cbb276d2",
+        "type": "function",
+        "z": "45bf3cd9ae0624aa",
+        "name": "ExtraerDatosJSON",
+        "func": "// El mensaje completo del Sparkplug B\nlet data = msg.payload;\nlet timestamp = data.timestamp;\nlet results = [];\n\n// Validación básica\nif (!data.metrics) {\n    node.warn(\"No hay métricas en el payload\");\n    return null;\n}\n\n// Recorrer jerarquía principal\nfor (let mod of data.metrics) {\n    let modulo = mod.name || \"unknown\";\n\n    if (!mod.templateValue || !mod.templateValue.metrics) continue;\n\n    // Recorrer los submódulos del módulo (GrowBed, FishTank, etc.)\n    for (let sub of mod.templateValue.metrics) {\n        let submodulo = sub.name || \"none\";\n\n        if ((!sub.templateValue || !sub.templateValue.metrics) &&\n            sub.floatValue === undefined) continue;\n\n        // ============================\n        //    CASO 1: GROWBED\n        // ============================\n        if (submodulo === 'AquaponicGrowBed') {\n            for (let device of sub.templateValue.metrics) {\n                let deviceName = device.name || \"device\";\n                let template = device.templateValue;\n                if (!template || !template.metrics) continue;\n\n                // --- A) ACTUADORES ---\n                if (template.templateRef === 'Actuadores') {\n                    let datosAct = {};\n                    for (let m of template.metrics) {\n                        datosAct[m.name] =\n                            m.floatValue ?? m.booleanValue ?? m.stringValue ?? null;\n                    }\n\n                    results.push({\n                        timestamp,\n                        modulo,\n                        submodulo,\n                        dispositivo: deviceName,\n                        descripcion: datosAct[\"Desc\"] ?? \"\",\n                        start: datosAct[\"Start\"] ?? 0,\n                        stop: datosAct[\"Stop\"] ?? 0,\n                        valstatus: datosAct[\"ValStatus\"] ?? 0,\n                        fault: datosAct[\"Fault\"] ?? 0\n                    });\n                }\n\n                // --- B) SENSORES DIGITALES ---\n                else if (template.templateRef === 'Digital_Sensors') {\n\n                    // Buscamos el valor PV (true/false → 1/0)\n                    let pvMetric = template.metrics.find(m => m.name === \"PV\");\n                    let pv = null;\n\n                    if (pvMetric && pvMetric.booleanValue !== undefined) {\n                        pv = pvMetric.booleanValue ? 1 : 0;\n                    }\n\n                    results.push({\n                        timestamp,\n                        modulo,\n                        submodulo,\n                        dispositivo: deviceName,\n                        tipo: \"digital\",\n                        variable: \"PV\",\n                        valor: pv\n                    });\n                }\n\n                // --- C) SENSORES ANALÓGICOS ---\n                else {\n                    for (let m of template.metrics) {\n                        let variable = m.name;\n                        let value = m.floatValue ?? m.booleanValue ?? m.stringValue ?? null;\n\n                        results.push({\n                            timestamp,\n                            modulo,\n                            submodulo,\n                            dispositivo: deviceName,\n                            tipo: \"analogico\",\n                            variable,\n                            valor: value\n                        });\n                    }\n                }\n            }\n        }\n\n        // ============================\n        //    CASO 2: FISH TANK\n        // ============================\n        else if (submodulo === 'FishTank') {\n            for (let device of sub.templateValue.metrics) {\n                let deviceName = device.name || \"device\";\n                let template = device.templateValue;\n                if (!template || !template.metrics) continue;\n\n                // --- A) ACTUADORES ---\n                if (template.templateRef === 'Actuadores') {\n                    let datosAct = {};\n                    for (let m of template.metrics) {\n                        datosAct[m.name] =\n                            m.floatValue ?? m.booleanValue ?? m.stringValue ?? null;\n                    }\n\n                    results.push({\n                        timestamp,\n                        modulo,\n                        submodulo,\n                        dispositivo: deviceName,\n                        descripcion: datosAct[\"Desc\"] ?? \"\",\n                        start: datosAct[\"Start\"] ?? 0,\n                        stop: datosAct[\"Stop\"] ?? 0,\n                        valstatus: datosAct[\"ValStatus\"] ?? 0,\n                        fault: datosAct[\"Fault\"] ?? 0\n                    });\n                }\n\n                // --- B) SENSORES DIGITALES ---\n                else if (template.templateRef === 'Digital_Sensors') {\n\n                    let pvMetric = template.metrics[0];\n                    let pv = null;\n\n                    if (pvMetric && pvMetric.booleanValue !== undefined) {\n                        pv = pvMetric.booleanValue ? 1 : 0;\n                    }\n\n                    results.push({\n                        timestamp,\n                        modulo,\n                        submodulo,\n                        dispositivo: deviceName,\n                        tipo: \"digital\",\n                        variable: \"PV\",\n                        valor: pv\n                    });\n                }\n\n                // --- C) SENSORES ANALÓGICOS ---\n                else {\n                    for (let m of template.metrics) {\n                        let variable = m.name;\n                        let value = m.floatValue ?? m.booleanValue ?? m.stringValue ?? null;\n\n                        results.push({\n                            timestamp,\n                            modulo,\n                            submodulo,\n                            dispositivo: deviceName,\n                            tipo: \"analogico\",\n                            variable,\n                            valor: value\n                        });\n                    }\n                }\n            }\n        }\n\n        // ============================\n        //    CASO 3: MATERIA PRIMA\n        // ============================\n        else if (sub.name === \"Fish\" || sub.name === \"Vegetables\") {\n            let materia_prima = sub.name === \"Fish\" ? \"Peces\" : \"Vegetales\";\n            let cantidad = sub.floatValue ?? 0;\n\n            results.push({\n                timestamp,\n                modulo,\n                materia_prima,\n                cantidad\n            });\n        }\n    }\n}\n\n// Resultado final\nmsg.payload = results;\nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1090,
+        "y": 620,
+        "wires": [
+            [
+                "7f26ad91153946f3",
+                "7b8901693534a13c"
+            ]
+        ]
+    },
+    {
+        "id": "7b8901693534a13c",
+        "type": "debug",
+        "z": "45bf3cd9ae0624aa",
+        "name": "debug 2",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1340,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "3a3fe0fc884c6a7e",
+        "type": "debug",
+        "z": "45bf3cd9ae0624aa",
+        "name": "debug 4",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1320,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "805621feeb69dc79",
+        "type": "protobuf-file",
+        "protopath": "C:/nodered/sparkplug_b.proto",
+        "watchFile": true,
+        "keepCase": false
+    },
+    {
+        "id": "41f3249dec2d969e",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "2d6e576c681a4a7c",
+        "type": "MySQLdatabase",
+        "name": "proyecto_acuaponia",
+        "host": "localhost",
+        "port": "3306",
+        "db": "proyecto_acuaponia",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "5e712a06042d200d",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-protobuf": "1.1.2",
+            "node-red-node-mysql": "2.0.0"
+        }
+    }
+]
